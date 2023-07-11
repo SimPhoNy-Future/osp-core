@@ -84,13 +84,11 @@ def lru_cache_timestamp(
     """
 
     def decorator(func: Callable):
-
         holder: Dict[Any, Tuple[datetime, Callable]] = dict()
         """For each instance, holds its timestamp and the cached function."""
 
         @wraps(func)
         def wrapper(self, *args, **kwargs):
-
             internal_timestamp, cached_function = holder.get(
                 self, (None, None)
             )

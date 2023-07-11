@@ -1051,7 +1051,6 @@ class Session(Environment):
             )
 
         if identifiers:
-
             # The yield statement is encapsulated inside a function so that the
             # main function uses the return statement instead of yield. In this
             # way, exceptions are checked when the `iter` method is called

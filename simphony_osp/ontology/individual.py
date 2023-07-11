@@ -1518,7 +1518,7 @@ class OntologyIndividual(OntologyEntity):
                 )
         else:
             result = []
-            for (i, r, t) in relationship_set.iter_low_level():
+            for i, r, t in relationship_set.iter_low_level():
                 if not t:
                     continue
                 session = self.session
@@ -1650,16 +1650,16 @@ class OntologyIndividual(OntologyEntity):
             iterator = iter(relationship_set)
         else:
 
-            def iterator() -> Iterator[
-                Tuple[OntologyIndividual, OntologyRelationship]
-            ]:
+            def iterator() -> (
+                Iterator[Tuple[OntologyIndividual, OntologyRelationship]]
+            ):
                 """Helper iterator.
 
                 The purpose of defining this iterator is to be able to
                 return it, instead of using the `yield` keyword on the main
                 function, as described on the comment above.
                 """
-                for (i, r, t) in relationship_set.iter_low_level():
+                for i, r, t in relationship_set.iter_low_level():
                     if not t:
                         continue
                     session = self.session
@@ -2242,9 +2242,9 @@ class OntologyIndividual(OntologyEntity):
             Iterator with the queried ontology individuals.
         """
 
-        def individuals_and_relationships() -> Iterator[
-            OntologyIndividual, OntologyEntity
-        ]:
+        def individuals_and_relationships() -> (
+            Iterator[OntologyIndividual, OntologyEntity]
+        ):
             for s, p, o in self.session.graph.triples(
                 (
                     self.identifier,

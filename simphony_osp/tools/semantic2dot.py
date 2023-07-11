@@ -498,7 +498,6 @@ def terminal():
 
     namespaces = set()
     for x in args.plot:
-
         try:
             namespaces.add(Session.default_ontology.get_namespace(x))
             logger.warning("Using installed version of namespace %s" % x)

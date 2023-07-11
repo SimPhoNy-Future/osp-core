@@ -913,7 +913,6 @@ class InterfaceDriver(Store):
     def _compute_entity_modifications(
         self,
     ) -> Tuple[Set[OntologyEntity], Set[OntologyEntity], Set[OntologyEntity]]:
-
         # Find out from the triples which entities were added, updated and
         # deleted.
         class Tracker:
