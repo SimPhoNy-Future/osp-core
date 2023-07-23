@@ -22,6 +22,7 @@ from rdflib.term import Identifier
 
 from simphony_osp.utils.cache import lru_cache_timestamp
 from simphony_osp.utils.datatypes import UID, Triple
+from urllib.parse import urlparse
 
 if TYPE_CHECKING:
     from simphony_osp.ontology.namespace import OntologyNamespace
@@ -67,7 +68,9 @@ class OntologyEntity(ABC):
         definition of preferred label.
         """
         label_literal = self.label_literal
-        return str(label_literal) if label_literal is not None else None
+        # replace this: return str(label_literal) if label_literal is not None else None
+        return str(label_literal) if label_literal is not None else urlparse(str(self.uid)).fragment
+
 
     @label.setter
     def label(self, value: str) -> None:
