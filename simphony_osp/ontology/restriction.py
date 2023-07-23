@@ -199,9 +199,11 @@ class Restriction(OntologyEntity):
             # TODO: handle inverse properties defined as blank nodes.
             return self.session.from_identifier(prop)
         else:
-            raise RuntimeError(
-                f"Property {prop} is not within any installed " f"ontology."
-            )
+            #            raise RuntimeError(
+            #                f"Property {prop} is not within any installed " f"ontology."
+            ##            )
+            return "(not supported) inverse property"
+
 
     def _get_direct_superclasses(self) -> Iterable[OntologyEntity]:
         """Restrictions have no superclasses."""

@@ -52,15 +52,7 @@ def pretty_print(
     pp["title"] = f"{_pp_entity_name(entity)}:"
 
     # Superclasses
-    superclasses = (
-        {
-            superclass
-            for class_ in entity.classes
-            for superclass in class_.superclasses
-        }
-        if isinstance(entity, OntologyIndividual)
-        else set(entity.superclasses)
-    )
+    superclasses = entity.superclasses
     labels = _pp_list_of_labels_or_uids(superclasses, namespace=True)
     pp["superclasses"] = "\n  superclasses: " + labels
 
@@ -264,16 +256,12 @@ def _pp_individual_values(cuds_object, indentation="\n          "):
 def _pp_list_of_labels_or_uids(
     entities: Iterable[OntologyEntity], namespace: bool = False
 ) -> str:
-    entities = set(entities)
-    if namespace:
-        labels = (
-            f"{entity.label} ({entity.namespace.name})" for entity in entities
-        )
-    else:
-        labels = (entity.label for entity in entities)
-    labels = (
+    entities = list(entities)
+    labels = ( f"{entity.label} ({entity.namespace.name} )" if entity.namespace else f"{entity.label}" for entity in entities )
+
+    labels = [
         label if label is not None else str(entity.uid)
         for label, entity in zip(labels, entities)
-    )
+    ]
     labels = ", ".join(labels)
     return labels
