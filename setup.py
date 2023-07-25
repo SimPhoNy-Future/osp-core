@@ -64,7 +64,7 @@ setup(
     ],
     python_requires=">=3.7",
     package_data={
-        "simphony_osp.ontology.files": [
+        "osp.ontology.files": [
             "*.yml",
             "*.ttl",
             "*.xml",
@@ -73,19 +73,19 @@ setup(
     },
     include_package_data=True,
     entry_points={
-        "simphony_osp.wrappers": {
-            "SQLAlchemy = simphony_osp.interfaces.sqlalchemy:SQLAlchemy",
-            "SQLite = simphony_osp.interfaces.sqlite:SQLite",
-            "Dataspace = simphony_osp.interfaces.dataspace:Dataspace",
-            "Remote = simphony_osp.interfaces.remote:Remote",
+        "osp.wrappers": {
+            "SQLAlchemy = osp.interfaces.sqlalchemy:SQLAlchemy",
+            "SQLite = osp.interfaces.sqlite:SQLite",
+            "Dataspace = osp.interfaces.dataspace:Dataspace",
+            "Remote = osp.interfaces.remote:Remote",
         },
-        "simphony_osp.ontology.operations": {
-            "File = simphony_osp.ontology.operations.file:File",
-            "Container = simphony_osp.ontology.operations.container:Container",
+        "osp.ontology.operations": {
+            "File = osp.ontology.operations.file:File",
+            "Container = osp.ontology.operations.container:Container",
         },
         "console_scripts": {
-            "pico = simphony_osp.tools.pico:terminal",
-            "semantic2dot = simphony_osp.tools.semantic2dot:terminal",
+            "pico = osp.tools.pico:terminal",
+            "semantic2dot = osp.tools.semantic2dot:terminal",
         },
     },
 )

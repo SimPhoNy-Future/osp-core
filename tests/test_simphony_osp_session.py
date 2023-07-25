@@ -1,9 +1,9 @@
-"""Test the `simphony_osp.session` module."""
+"""Test the `osp.session` module."""
 
 import unittest
 
-from simphony_osp.ontology.parser import OntologyParser
-from simphony_osp.session.session import Session
+from osp.ontology.parser import OntologyParser
+from osp.session.session import Session
 
 
 class TestLoadParsers(unittest.TestCase):

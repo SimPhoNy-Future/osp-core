@@ -13,12 +13,12 @@ from typing import Optional
 
 from rdflib import XSD, Literal
 
-from simphony_osp.ontology.parser import OntologyParser
-from simphony_osp.session.session import Session
-from simphony_osp.session.wrapper import Wrapper
-from simphony_osp.tools import host
-from simphony_osp.utils.datatypes import Vector
-from simphony_osp.wrappers import Dataspace, Remote, SQLite
+from osp.ontology.parser import OntologyParser
+from osp.session.session import Session
+from osp.session.wrapper import Wrapper
+from osp.tools import host
+from osp.utils.datatypes import Vector
+from osp.wrappers import Dataspace, Remote, SQLite
 
 
 class TestWrapper(unittest.TestCase):
@@ -56,8 +56,8 @@ class TestWrapper(unittest.TestCase):
 
     def test_wrapper_city(self) -> None:
         """Test adding some entities from the city ontology."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.wrappers import SQLite
+        from osp.namespaces import city
+        from osp.wrappers import SQLite
 
         with SQLite(self.file_name, create=True) as wrapper:
             freiburg = city.City(name="Freiburg", coordinates=[20, 58])
@@ -127,9 +127,9 @@ class TestWrapper(unittest.TestCase):
 
     def test_wrapper_sparql(self) -> None:
         """Test SPARQL queries on wrappers."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.tools import sparql
-        from simphony_osp.wrappers import SQLite
+        from osp.namespaces import city
+        from osp.tools import sparql
+        from osp.wrappers import SQLite
 
         with SQLite(self.file_name, create=True):
             freiburg = city.City(name="Freiburg", coordinates=[20, 58])
@@ -192,7 +192,7 @@ class TestDataspaceWrapper(unittest.TestCase):
 
     def test_wrapper_city(self) -> None:
         """Test adding some entities from the city ontology."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Dataspace(self.dataspace_directory.name, True) as wrapper:
             freiburg = city.City(name="Freiburg", coordinates=[20, 58])
@@ -267,7 +267,7 @@ class TestDataspaceWrapper(unittest.TestCase):
 
     def test_files(self):
         """Test handling files."""
-        from simphony_osp.namespaces import simphony
+        from osp.namespaces import simphony
 
         with NamedTemporaryFile("w", suffix=".txt") as os_file:
             os_file.write("text")
@@ -450,7 +450,7 @@ class TestRemoteSQLite(unittest.TestCase):
 
     def test_city(self):
         """Test adding some entities from the city ontology."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with self.wrapper_generator() as wrapper:
             freiburg = city.City(name="Freiburg", coordinates=[0, 0])

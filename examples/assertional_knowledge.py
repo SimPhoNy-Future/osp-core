@@ -16,12 +16,12 @@ connected and navigated.
 Before running this example, make sure that the city and emmo
 ontologies are installed. If it is not the case, install them running the
 following code:
->>> from simphony_osp.tools.pico import install
+>>> from osp.tools.pico import install
 >>> install("city", "emmo")
 """
 
-from simphony_osp.namespaces import city, emmo, rdfs
-from simphony_osp.tools import pretty_print
+from osp.namespaces import city, emmo, rdfs
+from osp.tools import pretty_print
 
 # instantiate ontology individuals
 person = city.Citizen(

@@ -13,12 +13,12 @@ SimPhoNy.
 
 Before running this example, make sure that the city and emmo ontologies are
 installed. If it is not the case, install them running the following code:
->>> from simphony_osp.tools.pico import install
+>>> from osp.tools.pico import install
 >>> install("city", "emmo")
 """
 
-from simphony_osp.namespaces import city, emmo, owl, rdfs
-from simphony_osp.ontology import (
+from osp.namespaces import city, emmo, owl, rdfs
+from osp.ontology import (
     RESTRICTION_TYPE,
     Composition,
     OntologyAnnotation,
