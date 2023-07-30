@@ -1317,12 +1317,12 @@ class Session(Environment):
             compatible.remove(OntologyAnnotation)
 
         """Finally return the single compatible class or raise an exception."""
-        if len(compatible) >= 2:
+        """if len(compatible) >= 2:
             raise RuntimeError(
                 f"Two or more python classes ("
                 f"{', '.join(map(str, compatible))}) "
                 f"could be spawned from {identifier}."
-            )
+            )"""
         try:
             python_class = compatible.pop()
             return python_class(uid=UID(identifier), session=self, merge=None)
