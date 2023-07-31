@@ -1,0 +1,5 @@
+identifier: rdfschema
+ontology_file: rdfschema.ttl
+format: 'turtle'
+namespaces:
+    rdfschema: http://www.w3.org/2000/01/rdf-schema#
