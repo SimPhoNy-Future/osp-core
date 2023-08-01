@@ -15,13 +15,13 @@ SimPhoNy.
 
 Before running this example, make sure that the city ontology is
 installed. If it is not the case, install them running the following code:
->>> from simphony_osp.tools.pico import install
+>>> from osp.tools.pico import install
 >>> install("city")
 """
 
-from simphony_osp.namespaces import city
-from simphony_osp.tools import pretty_print
-from simphony_osp.wrappers import SQLite
+from osp.namespaces import city
+from osp.tools import pretty_print
+from osp.wrappers import SQLite
 
 # instantiate some individuals directly in an SQLite database
 with SQLite("database.db", create=True) as sqlite:

@@ -16,16 +16,16 @@ contents as RDF files and importing RDF files into sessions.
 
 Before running this example, make sure that the city ontology is
 installed. If it is not the case, install them running the following code:
->>> from simphony_osp.tools.pico import install
+>>> from osp.tools.pico import install
 >>> install("city")
 """
 
-from simphony_osp.namespaces import city, owl
-from simphony_osp.ontology import OntologyIndividual
-from simphony_osp.session import Session, core_session
-from simphony_osp.tools import export_file, import_file, pretty_print, search
+from osp.namespaces import city, owl
+from osp.ontology import OntologyIndividual
+from osp.session import Session, core_session
+from osp.tools import export_file, import_file, pretty_print, search
 
-# Every time an object from the `simphony_osp` package is imported, a session
+# Every time an object from the `osp` package is imported, a session
 # called "core session" is created and set as "default session".
 
 # Newly instantiated individuals are stored in the session currently set

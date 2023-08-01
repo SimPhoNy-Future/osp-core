@@ -19,21 +19,21 @@ from rdflib import OWL, RDF, RDFS, SKOS, XSD, BNode, Graph, Literal, URIRef
 from rdflib.compare import isomorphic
 from rdflib.plugins.parsers.jsonld import to_rdf as json_to_rdf
 
-from simphony_osp.ontology.annotation import OntologyAnnotation
-from simphony_osp.ontology.attribute import OntologyAttribute
-from simphony_osp.ontology.individual import (
+from osp.ontology.annotation import OntologyAnnotation
+from osp.ontology.attribute import OntologyAttribute
+from osp.ontology.individual import (
     MultipleResultsError,
     OntologyIndividual,
     ResultEmptyError,
 )
-from simphony_osp.ontology.namespace import OntologyNamespace
-from simphony_osp.ontology.oclass import OntologyClass
-from simphony_osp.ontology.parser import OntologyParser
-from simphony_osp.ontology.relationship import OntologyRelationship
-from simphony_osp.session.session import Session
-from simphony_osp.tools import branch, export_file, import_file, sparql
-from simphony_osp.tools.pico import install, namespaces, packages, uninstall
-from simphony_osp.utils.pico import pico
+from osp.ontology.namespace import OntologyNamespace
+from osp.ontology.oclass import OntologyClass
+from osp.ontology.parser import OntologyParser
+from osp.ontology.relationship import OntologyRelationship
+from osp.session.session import Session
+from osp.tools import branch, export_file, import_file, sparql
+from osp.tools.pico import install, namespaces, packages, uninstall
+from osp.utils.pico import pico
 
 
 class TestSessionAPI(unittest.TestCase):
@@ -87,7 +87,7 @@ class TestSessionAPI(unittest.TestCase):
         The test also changes the properties and verifies that the session
         reacts as expected.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Session() as session:
             self.assertIsInstance(session.label_predicates, tuple)
@@ -124,7 +124,7 @@ class TestSessionAPI(unittest.TestCase):
         The test also changes the properties and verifies that the session
         reacts as expected.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Session() as session:
             self.assertIsInstance(session.label_languages, tuple)
@@ -238,7 +238,7 @@ class TestSessionAPI(unittest.TestCase):
         # Clear the default session's contents.
         Session.get_default_session().clear()
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         def is_freiburg(iri):
             value = str(iri)
@@ -305,7 +305,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_contains(self):
         """Tests the __contains__ method functionality."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         pr = city.City(
@@ -343,7 +343,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_iter_magic(self):
         """Tests the __iter__ method functionality."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Session() as session:
             self.assertSetEqual(set(session), set())
@@ -366,7 +366,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_len(self):
         """Tests the __len__ method functionality."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Session() as session:
             self.assertEqual(len(session), 0)
@@ -397,7 +397,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_from_label(self):
         """Tests the from_label method."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.ontology.lock()
         with self.ontology as ontology:
@@ -440,7 +440,7 @@ class TestSessionAPI(unittest.TestCase):
 
         Lets the user bring ontology entities from other sessions.
         """
-        from simphony_osp.namespaces import city, owl
+        from osp.namespaces import city, owl
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         klaus = city.Citizen(name="Klaus", age=59)
@@ -494,7 +494,7 @@ class TestSessionAPI(unittest.TestCase):
 
         Lets the user delete ontology entities.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         klaus_outside = city.Citizen(name="Klaus", age=59)
 
@@ -514,7 +514,7 @@ class TestSessionAPI(unittest.TestCase):
 
         Gets rid of all the ontology entities in the session.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         with Session() as session:
             fr = city.City(name="Freiburg", coordinates=[0, 0])
@@ -561,7 +561,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_iter(self):
         """Tests the `iter` method of the session."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         pr = city.City(name="Paris", coordinates=[20, 10])
 
@@ -667,7 +667,7 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_get(self):
         """Tests the `get` method of the session."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         pr = city.City(name="Paris", coordinates=[20, 10])
 
@@ -753,7 +753,7 @@ class TestSessionAPI(unittest.TestCase):
         `SessionSet` are implicitly tested on `test_get`, such as the
         `__iter__` method. Such details are omitted in this test.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         pr = city.City(name="Paris", coordinates=[20, 10])
 
@@ -954,8 +954,8 @@ class TestSessionAPI(unittest.TestCase):
 
     def test_core_session(self):
         """Tests access and use of the default session."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.session import Session, core_session
+        from osp.namespaces import city
+        from osp.session import Session, core_session
 
         fr = city.City(name="Freiburg", coordinates=[10, 28])
 
@@ -994,7 +994,7 @@ class TestOntologyAPICity(unittest.TestCase):
 
         Includes methods inherited from OntologyEntity.
         """
-        from simphony_osp.namespaces import city, owl
+        from osp.namespaces import city, owl
 
         name = city["name"]
         age = city.age
@@ -1075,7 +1075,7 @@ class TestOntologyAPICity(unittest.TestCase):
         Does NOT include methods inherited from OntologyEntity. Such methods
         were already tested in `test_attribute`.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         person = city.Person
 
@@ -1116,7 +1116,7 @@ class TestOntologyAPICity(unittest.TestCase):
 
         Does NOT include methods inherited from OntologyEntity.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         has_worker = city.hasWorker
         has_inhabitant = city.hasInhabitant
@@ -1138,7 +1138,7 @@ class TestOntologyAPICity(unittest.TestCase):
 
         DOES include methods inherited from OntologyEntity.
         """
-        from simphony_osp.namespaces import city, owl
+        from osp.namespaces import city, owl
 
         # Test creating new individuals.
         freiburg = city.City(name="Freiburg", coordinates=[0, 0])
@@ -1448,7 +1448,7 @@ class TestOntologyAPICity(unittest.TestCase):
 
     def test_namespace(self):
         """Tests the OntologyNamespace class."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.assertTrue(isinstance(city, OntologyNamespace))
 
@@ -1573,7 +1573,7 @@ class TestOntologyAPICity(unittest.TestCase):
 
     def test_bracket_notation(self):
         """Detailed test of the functionality of the bracket notation."""
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         paris = city.City(name="Paris", coordinates=[0, 0])
         marc = city.Citizen(name="Marc", age=25)
@@ -1827,7 +1827,7 @@ class TestOntologyAPIFOAF(unittest.TestCase):
 
         DOES include methods inherited from OntologyEntity.
         """
-        from simphony_osp.namespaces import foaf
+        from osp.namespaces import foaf
 
         # Test annotation of ontology individuals.
         group = foaf.Group()
@@ -1852,7 +1852,7 @@ class TestOntologyAPIFOAF(unittest.TestCase):
         Only tests attributes, as all the relationships are tested on
         test_apy_city.TestAPICity.test_bracket_notation.
         """
-        from simphony_osp.namespaces import foaf
+        from osp.namespaces import foaf
 
         marc = foaf.Person()
 
@@ -2041,7 +2041,7 @@ class TestBundledOperations(unittest.TestCase):
 
     def test_container(self):
         """Test the container ontology individual."""
-        from simphony_osp.namespaces import city, simphony
+        from osp.namespaces import city, simphony
 
         container = simphony.Container()
 
@@ -2236,29 +2236,29 @@ class TestToolsPico(unittest.TestCase):
             ModuleNotFoundError,
             import_module,
             "city",
-            "simphony_osp.namespaces",
+            "osp.namespaces",
         )
 
         install("city")
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.assertTrue(city.City)
 
     def test_uninstall(self):
         """Test the uninstallation of ontologies."""
-        import simphony_osp.namespaces as namespaces_module
+        import osp.namespaces as namespaces_module
 
         # Install the ontology first and guarantee that it worked.
         self.assertRaises(
             ModuleNotFoundError,
             import_module,
             "city",
-            "simphony_osp.namespaces",
+            "osp.namespaces",
         )
         install("city")
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.assertTrue(city.City)
 
@@ -2268,7 +2268,7 @@ class TestToolsPico(unittest.TestCase):
             ModuleNotFoundError,
             import_module,
             "city",
-            "simphony_osp.namespaces",
+            "osp.namespaces",
         )
         self.assertRaises(
             AttributeError, lambda: getattr(namespaces_module, "city")
@@ -2312,7 +2312,7 @@ class TestToolsPico(unittest.TestCase):
 
 
 class TestToolsGeneral(unittest.TestCase):
-    """Tests the methods from `simphony_osp.tools.general."""
+    """Tests the methods from `osp.tools.general."""
 
     ontology: Session
     prev_default_ontology: Session
@@ -2335,8 +2335,8 @@ class TestToolsGeneral(unittest.TestCase):
 
     def test_branch(self):
         """Tests the `branch` function."""
-        from simphony_osp.namespaces import city, owl
-        from simphony_osp.tools import branch
+        from osp.namespaces import city, owl
+        from osp.tools import branch
 
         fr = city.City(name="Freiburg", coordinates=[1, 20])
         marc = city.Citizen(name="Marc", age=25)
@@ -2363,8 +2363,8 @@ class TestToolsGeneral(unittest.TestCase):
 
     def test_relationships_between(self):
         """Tests the `relationships_between` function."""
-        from simphony_osp.namespaces import city, owl
-        from simphony_osp.tools import relationships_between
+        from osp.namespaces import city, owl
+        from osp.tools import relationships_between
 
         fr = city.City(name="Freiburg", coordinates=[1, 20])
         marc = city.Citizen(name="Marc", age=25)
@@ -2500,7 +2500,7 @@ class TestToolsImportExport(unittest.TestCase):
 
         This test uses a city ontology instead.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         # Importing
         test_data_path = str(
@@ -2558,7 +2558,7 @@ class TestToolsImportExport(unittest.TestCase):
 
         This test uses the city ontology.
         """
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         # Exporting
         c = city.City(name="Freiburg", coordinates=[47, 7])
@@ -2626,7 +2626,7 @@ class TestToolsImportExport(unittest.TestCase):
 
     def test_option_all_triples(self):
         """Tests using the `all_triples` option."""
-        from simphony_osp.tools import import_file
+        from osp.tools import import_file
 
         rdf = self.graph_unsupported_triples
         rdf = rdf.serialize(format="turtle", encoding="utf-8").decode("utf-8")
@@ -2676,7 +2676,7 @@ class TestToolsImportExport(unittest.TestCase):
 
     def test_option_all_statements(self):
         """Tests using the `all_statements` option."""
-        from simphony_osp.tools import import_file
+        from osp.tools import import_file
 
         rdf = self.graph_unsupported_triples
         rdf = rdf.serialize(format="turtle", encoding="utf-8").decode("utf-8")
@@ -2744,7 +2744,7 @@ class TestToolsImportExport(unittest.TestCase):
                 'export'). Makes distinguishing the different integrity checks
                 done during a test easier.
         """
-        from simphony_osp.namespaces import owl, test_importexport
+        from osp.namespaces import owl, test_importexport
 
         if label:
             label = f"({str(label)}) "
@@ -2982,8 +2982,8 @@ class TestToolsSearch(unittest.TestCase):
 
     def test_find(self):
         """Tests the `find` method."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.tools import find
+        from osp.namespaces import city
+        from osp.tools import find
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         pr = city.City(name="Paris", coordinates=[0, 1])
@@ -3049,8 +3049,8 @@ class TestToolsSearch(unittest.TestCase):
 
     def test_find_by_class(self):
         """Tests the `find_by_class` method."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.tools import find_by_class
+        from osp.namespaces import city
+        from osp.tools import find_by_class
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         pr = city.City(name="Paris", coordinates=[0, 1])
@@ -3073,8 +3073,8 @@ class TestToolsSearch(unittest.TestCase):
 
     def test_find_by_attribute(self):
         """Tests the `find_by_attribute` method."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.tools import find_by_attribute
+        from osp.namespaces import city
+        from osp.tools import find_by_attribute
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         pr = city.City(name="Paris", coordinates=[0, 1])
@@ -3104,8 +3104,8 @@ class TestToolsSearch(unittest.TestCase):
 
     def test_find_relationships(self):
         """Tests the `find_relationships` method."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.tools import find_relationships
+        from osp.namespaces import city
+        from osp.tools import find_relationships
 
         fr = city.City(name="Freiburg", coordinates=[0, 0])
         pr = city.City(name="Paris", coordinates=[0, 1])
@@ -3128,9 +3128,9 @@ class TestToolsSearch(unittest.TestCase):
 
     def test_sparql(self):
         """Tests the `sparql` method."""
-        from simphony_osp.namespaces import city
-        from simphony_osp.session import core_session
-        from simphony_osp.tools import sparql
+        from osp.namespaces import city
+        from osp.session import core_session
+        from osp.tools import sparql
 
         core_session.clear()
 

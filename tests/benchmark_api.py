@@ -5,9 +5,9 @@ import random
 
 import rdflib
 
-from simphony_osp.ontology.namespace import OntologyNamespace
-from simphony_osp.ontology.parser import OntologyParser
-from simphony_osp.session import Session
+from osp.ontology.namespace import OntologyNamespace
+from osp.ontology.parser import OntologyParser
+from osp.session import Session
 
 from .benchmark import Benchmark
 
@@ -27,7 +27,7 @@ class EntityIri(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.citizen = city.Citizen(name="someone", age=25)
 
@@ -57,7 +57,7 @@ class EntityIdentifier(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.citizen = city.Citizen(name="someone", age=25)
 
@@ -93,7 +93,7 @@ class IndividualCreate(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city = city
 
@@ -130,7 +130,7 @@ class IndividualIsA(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         classes = (
             city.ArchitecturalComponent,
@@ -196,7 +196,7 @@ class IndividualClasses(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.citizen = city.Citizen(name="someone", age=25)
 
@@ -228,7 +228,7 @@ class IndividualConnect(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city_namespace = city
 
@@ -267,7 +267,7 @@ class IndividualGetByIdentifier(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city = city.City(name="Freiburg", coordinates=[0, 0])
         self.citizens = tuple(
@@ -307,7 +307,7 @@ class IndividualGetByIdentifierURIRef(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city = city.City(name="Freiburg", coordinates=[0, 0])
         self.iris = tuple(
@@ -349,7 +349,7 @@ class IndividualGetByRel(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city_namespace = city
 
@@ -395,7 +395,7 @@ class IndividualGetByOclass(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city_namespace = city
 
@@ -443,7 +443,7 @@ class IndividualIterByIdentifier(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city = city.City(name="Freiburg", coordinates=[0, 0])
         self.citizens = tuple(
@@ -484,7 +484,7 @@ class IndividualIterByIdentifierURIRef(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city = city.City(name="Freiburg", coordinates=[0, 0])
         self.iris = tuple(
@@ -527,7 +527,7 @@ class IndividualIterByRel(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city_namespace = city
 
@@ -573,7 +573,7 @@ class IndividualIterByOclass(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.city_namespace = city
 
@@ -621,7 +621,7 @@ class IndividualGetAttr(Benchmark):
         self.prev_default_ontology = Session.default_ontology
         Session.default_ontology = self.ontology
 
-        from simphony_osp.namespaces import city
+        from osp.namespaces import city
 
         self.citizen = city.Citizen(name="Lukas", age=93)
         self.city = city.City(name="Freiburg", coordinates=[108, 49])

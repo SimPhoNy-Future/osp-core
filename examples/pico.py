@@ -16,7 +16,7 @@
    (https://simphony.readthedocs.io/en/v4.0.0/usage/ontologies/pico.html)
 """
 
-from simphony_osp.tools.pico import install, namespaces, packages, uninstall
+from osp.tools.pico import install, namespaces, packages, uninstall
 
 install(
     "city",  # ontology package included with SimPhoNy
