@@ -1,0 +1,14 @@
+@prefix city: <https://www.simphony-osp.eu/city#> .
+@prefix simphony: <https://www.simphony-osp.eu/simphony#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.simphony-osp.eu/entity#a4153797-44ec-41aa-b70c-8468f2cca60a> a city:City ;
+    city:coordinates "13YOs0RR930RR91000000RR9100000"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:hasPart <https://www.simphony-osp.eu/entity#2da44e57-0c6b-4f5e-a12f-7cdd5ad57993>,
+        <https://www.simphony-osp.eu/entity#84466ec1-6811-4edf-ae77-4e45430b15d1>,
+        <https://www.simphony-osp.eu/entity#b17db08c-bb41-489b-ad61-6cff199dea71>,
+        <https://www.simphony-osp.eu/entity#b21ced22-233a-4e81-9b04-3bbe17189aa2>,
+        <https://www.simphony-osp.eu/entity#cd45dba7-624c-49bf-9029-f19be4002afd> ;
+    city:name "london"^^xsd:string ;
+    simphony:main true .
+

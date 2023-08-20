@@ -1,0 +1,9 @@
+@prefix city: <https://www.simphony-osp.eu/city#> .
+@prefix simphony: <https://www.simphony-osp.eu/simphony#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.simphony-osp.eu/entity#72024b54-eaa0-43e2-9328-1831082cf160> a city:City ;
+    city:coordinates "13YOs0RR9300000000000000000000"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "haifa"^^xsd:string ;
+    simphony:main true .
+

@@ -1311,11 +1311,13 @@ class Session(Environment):
         """Some ontologies are hybrid RDFS and OWL ontologies (i.e. FOAF).
         In such cases, object and datatype properties are preferred to
         annotation properties."""
+
         if OntologyAnnotation in compatible and (
             compatible & {OntologyRelationship, OntologyAttribute}
         ):
             compatible.remove(OntologyAnnotation)
 
+        #TODO: check the blelow, which is a temporary solution. (issue #15)
         """Finally return the single compatible class or raise an exception."""
         """if len(compatible) >= 2:
             raise RuntimeError(
@@ -1333,6 +1335,8 @@ class Session(Environment):
                 f"SimPhoNy, nor an ontology individual "
                 f"belonging to a class in the ontology."
             )
+            #TODO: instead of error, return the identifier with a message its not found, so that
+            #e.g semantic2dot could instantiate it on the fly for visualisation.see issue 18
 
     def from_identifier_typed(
         self, identifier: Node, typing: Type[ENTITY]
@@ -1744,7 +1748,7 @@ class QueryResult(SPARQLResult):
     def __init__(self, *args, session: Optional[Session] = None, **kwargs):
         """Initialize the query result.
 
-        Namely, a session is linked to this query result so that if ontology
+        Namely, a session is linked to this query result so that ontology
         individuals are requested,
 
         Args:

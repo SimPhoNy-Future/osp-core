@@ -1,0 +1,115 @@
+@prefix city: <https://www.simphony-osp.eu/city#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.simphony-osp.eu/entity#4b96646d-aa2b-4f52-bb05-921b48a9fab8> a city:City ;
+    city:coordinates "13YFp0RR93AD@t&xBo{#)k4YS)LtJz"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:hasInhabitant <http://example.org/entities#Lena>,
+        <http://example.org/entities#Nikola> ;
+    city:hasPart <https://www.simphony-osp.eu/entity#24910469-3161-427a-813b-3058fd1ececb>,
+        <https://www.simphony-osp.eu/entity#346e8021-dc3d-444f-b8ef-15e905f3547b>,
+        <https://www.simphony-osp.eu/entity#48512eff-8b83-4e43-90f1-67c993bb2e65>,
+        <https://www.simphony-osp.eu/entity#91e7ea3f-7efb-428f-ba88-e1391319a880>,
+        <https://www.simphony-osp.eu/entity#a8f9063f-4c4c-41a0-aa77-3fa3b2012de8> ;
+    city:name "Freiburg"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#aef1568d-0607-4e1c-b100-d4a32050b4f0> a city:City ;
+    city:coordinates "13YFp0RR93AD@t&xBo{#)k4YS)LtJz"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:hasInhabitant <https://www.simphony-osp.eu/entity#0012cf9f-11e6-48d9-83e6-6f6a0bbb4c09>,
+        <https://www.simphony-osp.eu/entity#5999086e-eabc-41b1-9017-7a6d3e0be4c9> ;
+    city:hasPart <https://www.simphony-osp.eu/entity#85d5930a-c43b-4f89-9fdf-593805eb526a>,
+        <https://www.simphony-osp.eu/entity#9243eedf-59e8-4041-8d48-72f35747d9e1>,
+        <https://www.simphony-osp.eu/entity#934510d0-4652-478f-8fa9-2b1886a3c2ab>,
+        <https://www.simphony-osp.eu/entity#ae9e38b6-981f-49c6-95e4-83ea103e6671>,
+        <https://www.simphony-osp.eu/entity#e6d9f014-adfc-4bed-bc42-c130b14c0f78> ;
+    city:name "Freiburg"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#bfa96e9f-b47e-4f15-8290-44dd181262d1> a city:City ;
+    city:coordinates "13YFp0RR933|ZakIc-QlL#=7vamoTf"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:hasInhabitant <https://www.simphony-osp.eu/entity#f6a4b2e6-f8d1-4a20-8395-9df8f1131c1c> ;
+    city:hasPart <https://www.simphony-osp.eu/entity#1380f012-000e-469c-92a0-de0bea02268f>,
+        <https://www.simphony-osp.eu/entity#15fbb17d-79cd-43f7-9f19-20b4dc337391>,
+        <https://www.simphony-osp.eu/entity#7bfc5a4d-0a27-4f43-8c37-afb3ef314580>,
+        <https://www.simphony-osp.eu/entity#a2491e21-61e4-4eb3-86f4-fa3d86b59566>,
+        <https://www.simphony-osp.eu/entity#c44a07c2-4f4c-4a12-af52-6bb98599b919> ;
+    city:name "Paris"^^xsd:string .
+
+<http://example.org/entities#Lena> a city:Citizen ;
+    city:age 70 ;
+    city:name "Lena"^^xsd:string .
+
+<http://example.org/entities#Nikola> a city:Citizen ;
+    city:age 35 ;
+    city:name "Nikola"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#0012cf9f-11e6-48d9-83e6-6f6a0bbb4c09> a city:Citizen ;
+    city:age 70 ;
+    city:name "Lena"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#1380f012-000e-469c-92a0-de0bea02268f> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93tp9VEFK<XdB_n5HPrCv@"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Bourse"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#15fbb17d-79cd-43f7-9f19-20b4dc337391> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93wZmVNHEu{i8LgwL3E~1k"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Temple"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#24910469-3161-427a-813b-3058fd1ececb> a city:Neighborhood ;
+    city:coordinates "13YFp0RR932&^1hWdBD%`qdmDm}4J6"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Altstadt"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#346e8021-dc3d-444f-b8ef-15e905f3547b> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93;GrncCjv-7tQ=ZoJ6|6_"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Brühl"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#48512eff-8b83-4e43-90f1-67c993bb2e65> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93FrGm}{{TopGpEa9Vsjrr"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Herdern"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#5999086e-eabc-41b1-9017-7a6d3e0be4c9> a city:Citizen ;
+    city:age 35 ;
+    city:name "Nikola"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#7bfc5a4d-0a27-4f43-8c37-afb3ef314580> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93qaLEs9c)NIW{6{5+{OYx"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Panthéon"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#85d5930a-c43b-4f89-9fdf-593805eb526a> a city:Neighborhood ;
+    city:coordinates "13YFp0RR932&^1hWdBD%`qdmDm}4J6"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Altstadt"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#91e7ea3f-7efb-428f-ba88-e1391319a880> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93a!|rd+y6&EL^QgC*jXPy"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Stühlinger"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#9243eedf-59e8-4041-8d48-72f35747d9e1> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93;GrncCjv-7tQ=ZoJ6|6_"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Brühl"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#934510d0-4652-478f-8fa9-2b1886a3c2ab> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93a!|rd+y6&EL^QgC*jXPy"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Stühlinger"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#a2491e21-61e4-4eb3-86f4-fa3d86b59566> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93W)#aUt!_v_%Sw|{(5(VM"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Louvre"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#a8f9063f-4c4c-41a0-aa77-3fa3b2012de8> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93>yVq_1^`Gv#9Dj`fN>u{"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Neuburg"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#ae9e38b6-981f-49c6-95e4-83ea103e6671> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93>yVq_1^`Gv#9Dj`fN>u{"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Neuburg"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#c44a07c2-4f4c-4a12-af52-6bb98599b919> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93;k4jIUu{T09^tg$Mc)EI"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Hôtel-de-Ville"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#e6d9f014-adfc-4bed-bc42-c130b14c0f78> a city:Neighborhood ;
+    city:coordinates "13YFp0RR93FrGm}{{TopGpEa9Vsjrr"^^<https://www.simphony-osp.eu/types#Vector> ;
+    city:name "Herdern"^^xsd:string .
+
+<https://www.simphony-osp.eu/entity#f6a4b2e6-f8d1-4a20-8395-9df8f1131c1c> a city:Citizen ;
+    city:age 32 ;
+    city:name "François"^^xsd:string .
+
