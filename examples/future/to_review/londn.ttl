@@ -1,9 +1,0 @@
-@prefix city: <https://www.simphony-osp.eu/city#> .
-@prefix simphony: <https://www.simphony-osp.eu/simphony#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://www.simphony-osp.eu/entity#bfa89b6c-b412-4c5b-b5f1-1c21baf98ab7> a city:City ;
-    city:coordinates "13YOs0RR930RR91000000RR9100000"^^<https://www.simphony-osp.eu/types#Vector> ;
-    city:name "london"^^xsd:string ;
-    simphony:main true .
-

@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 
 class Semantic2Dot:
-    """Class for ojects returned by the `semantic2dot` plotting tool.
+    """Class for objects returned by the `semantic2dot` plotting tool.
 
     Objects of this class produced as outcome of calling the `semantic2dot`
     plotting tool. They hold the graph information and can be used either to

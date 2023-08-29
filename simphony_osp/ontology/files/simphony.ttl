@@ -15,7 +15,7 @@
 
 ###  https://www.simphony-osp.eu/simphony#main
 simphony:main rdf:type owl:AnnotationProperty ;
-              rdfs:comment "When multiple ontology individuals are serialized to a file, one of them can be tagged with this proverty (whose value must be True). When the file is imported again in SimPhoNy, only such item will be returned."@en ;
+              rdfs:comment "When multiple ontology individuals are serialized to a file, one of them can be tagged with this property (whose value must be True). When the file is imported again in SimPhoNy, only such item will be returned."@en ;
               rdfs:label "Main individual"@en ;
               rdfs:range xsd:boolean .
 
